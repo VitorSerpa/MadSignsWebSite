@@ -1,0 +1,142 @@
+.radial_div {
+    height: 520px;
+    background: radial-gradient(circle at 21% 115%,
+            white 0%,
+            grey 5%,
+            black 40%);
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    flex-wrap: wrap;
+}
+
+.radial_div h1{
+    color: white;
+    font-size: 76px;
+}
+
+.radial_div h2{
+    color: #B3B3B3;
+    font-size: 36px;
+}
+
+.img_flip {
+  transform: scaleX(-1);
+}
+
+.img_div {
+    display: flex;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.img1{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: transform 0.2s ease-out;
+}
+
+.img2{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: transform 0.2s ease-out;
+}
+
+.img1:hover, .img2:hover {
+    transform: translate(0, -5) ;
+    cursor: pointer;
+}
+
+.title_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.button_veja{
+    font-size: 16;
+    margin-top: 1rem;
+    padding: 0.4rem 2.8rem;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.button_veja:hover{
+    cursor: pointer;
+}
+
+
+.options_div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0rem 18rem;
+    place-items: center;
+    text-align: center;
+}
+
+.option_item {
+    margin-top: 2.5rem;
+    padding: 2rem 4rem;
+    border: solid 1px black;
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+    flex-direction: column;
+    align-items: center;
+
+    transition: all 0.2s ease;
+}
+
+.option_item:hover {
+    cursor: pointer;
+    transform: translateY(-4px);
+    background-color: #f5f5f5;
+}
+
+
+.option_title{
+    margin-top: 1rem;
+}
+
+.about {
+    margin-top: 2.5rem;
+    background-color: #333333;
+    color: #757575;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 4rem 8rem;
+}
+
+.about_text {
+    max-width: 45%;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.about h2 {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.img_div_about {
+    max-width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.img_div_about img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+

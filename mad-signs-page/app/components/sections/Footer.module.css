@@ -1,0 +1,14 @@
+.main_div_footer{
+    margin: 1rem 14rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer_links a{
+    text-decoration: none;
+    font-size: 16;
+    color: black;
+    margin: 0 1rem;
+}
