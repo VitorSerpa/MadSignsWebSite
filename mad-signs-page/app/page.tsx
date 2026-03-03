@@ -2,53 +2,47 @@
 import Header from "./components/sections/Header";
 import Footer from "./components/sections/Footer";
 import style from "./Page.module.css";
-import { EffectCoverflow } from "swiper/modules";
-import "swiper/css/effect-coverflow";
-
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination, Autoplay, EffectCoverflow } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
 
 export default function Home() {
-  const options = [
-    {
-      title: "Portas ACM",
-      img_path: "/images/portasLogo.jpg",
-      link: "/portas",
-    },
-    {
-      title: "Portas ACM",
-      img_path: "/images/portasLogo.jpg",
-      link: "/portas",
-    },
-    {
-      title: "Portas ACM",
-      img_path: "/images/portasLogo.jpg",
-      link: "/portas",
-    },
-    {
-      title: "Portas ACM",
-      img_path: "/images/portasLogo.jpg",
-      link: "/portas",
-    },
-    {
-      title: "Portas ACM",
-      img_path: "/images/portasLogo.jpg",
-      link: "/portas",
-    },
-    {
-      title: "Portas ACM",
-      img_path: "/images/portasLogo.jpg",
-      link: "/portas",
-    },
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState("");
+
+  const openModal = (imgSrc: string) => {
+    setModalImage(imgSrc);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalImage("");
+  };
+
+  const images = [
+    "/images/portaACM1.jpeg",
+    "/images/portaACM2.jpeg",
+    "/images/portaACM3.jpeg",
+    "/images/portaACM4.jpeg",
+    "/images/portaACM5.jpeg",
+    "/images/portaACM6.jpeg",
+    "/images/portaACM1.jpeg",
+    "/images/portaACM2.jpeg",
+    "/images/portaACM3.jpeg",
+    "/images/portaACM4.jpeg",
+    "/images/portaACM5.jpeg",
+    "/images/portaACM6.jpeg",
   ];
 
   return (
     <div>
-      <Header></Header>
+      <Header />
       <div className={style.radial_div}>
         <div className={style.title_div}>
           <h1>MadSigns</h1>
@@ -59,74 +53,58 @@ export default function Home() {
           <button className={style.button_veja}>Veja mais</button>
         </div>
         <div className={style.img_div}>
-          <img src="images/portaACM5.jpeg" className={style.img1} alt="" />
-          <img src="images/portaACM4.jpeg" className={style.img2} alt="" />
+          <img src="/images/portaACM5.jpeg" className={style.img1} alt="" />
+          <img src="/images/portaACM4.jpeg" className={style.img2} alt="" />
         </div>
       </div>
+
       <div className={style.about}>
         <h1>Nossos Produtos:</h1>
         <div className={style.portas_carousel}>
           <Swiper
             modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
             effect="coverflow"
-            grabCursor={true} // cursor de “pegar” o slide
-              slidesPerView={3} // quantos slides visíveis
-            spaceBetween={30} // espaço entre slides
+            grabCursor={true}
+            slidesPerView={3}
+            spaceBetween={30}
             loop={true}
             autoplay={{
-              delay: 2000,
-              disableOnInteraction: true,
+              delay: 3000,
+              disableOnInteraction: false,
             }}
-            speed={2000}
+            speed={1000}
             coverflowEffect={{
-              rotate: 8, // rotação do slide lateral
-              stretch: 0, // quanto os slides se afastam lateralmente
-              depth: 200, // profundidade 3D
-              modifier: 1, 
-              slideShadows: true, 
+              rotate: 8,
+              stretch: 0,
+              depth: 200,
+              modifier: 1,
+              slideShadows: true,
             }}
             navigation
           >
-            <SwiperSlide>
-              <img src="/images/portaACM1.jpeg" alt="Porta ACM 1" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/images/portaACM4.jpeg" alt="Porta ACM 4" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/images/portaACM5.jpeg" alt="Porta ACM 5" />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <img src="/images/portaACM2.jpeg" alt="Porta ACM 2" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/images/portaACM3.jpeg" alt="Porta ACM 3" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/images/portaACM6.jpeg" alt="Porta ACM 3" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/images/portaACM1.jpeg" alt="Porta ACM 1" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/images/portaACM4.jpeg" alt="Porta ACM 4" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/images/portaACM5.jpeg" alt="Porta ACM 5" />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <img src="/images/portaACM2.jpeg" alt="Porta ACM 2" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/images/portaACM3.jpeg" alt="Porta ACM 3" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/images/portaACM6.jpeg" alt="Porta ACM 3" />
-            </SwiperSlide>
+            {images.map((img, idx) => (
+              <SwiperSlide key={idx}>
+                <img
+                  src={img}
+                  alt={`Porta ACM ${idx + 1}`}
+                  onClick={() => openModal(img)}
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
+
+        {modalOpen && (
+          <div className={style.modal_overlay} onClick={closeModal}>
+            <div className={style.modal_content} onClick={(e) => e.stopPropagation()}>
+              <img src={modalImage} alt="Imagem ampliada" />
+              <button className={style.modal_close} onClick={closeModal}>
+                ×
+              </button>
+            </div>
+          </div>
+        )}
+
         <div className={style.sobre_container}>
           <div className={style.sobre_texto}>
             <h2>Sobre a MadSigns</h2>
@@ -158,36 +136,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Footer></Footer>
+      <Footer />
     </div>
   );
-}
-
-{
-  /* <div className={style.about_text}>
-          <h2>Sobre a MadSigns</h2>
-          <p>
-            A Mad Signs Comunicação Visual , fundada em 1999, está localizada na
-            cidade de São José dos Campos/SP e conta hoje com uma grande
-            estrutura para atender seus clientes: dois galpões próprios que
-            somam mais de 500m², uma frota de veículos bem sinalizada, máquinas
-            de impressão digital, máquinas de corte (houter), equipe de solda,
-            instaladores profissionais, setor para projetos especiais e muitos
-            mais. <br />
-            <br /> Nosso portfólio de serviços é bastante extenso: fachadas em
-            ACM, toldos, coberturas, impressões digitais, sinalização completa,
-            envelopamento veicular, projetos arquitetônicos, banners e adesivos
-            em geral. <br />
-            <br /> Elaboramos e executamos os mais complexos projetos de
-            comunicação visual nos setores automobilísticos, bancário,
-            distribuição, telefonia, alimentício, atacadista, varejista,
-            industrial, dentre outros. A Mad Signs Comunicação Visual está
-            pronta para lhe atender, entre em contato conosco e solicite uma
-            visita.
-          </p>
-        </div>
-        
-        <div className={style.img_div_about}>
-          <img src="/images/empresa.jpg" alt="" />
-        </div>*/
 }

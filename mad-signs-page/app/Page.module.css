@@ -164,20 +164,19 @@
 
 .portas_carousel img {
     width: 100%;
-    max-width: 500px;
+    max-width: 520px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     object-fit: contain;
     border-radius: 4px;
-    position: relative;  
-    z-index: 1;
 }
 
 .portas_carousel img:hover {
-    transform: scale(1.05); /* leve aumento para indicar interação */
-    filter: brightness(0.85); /* escurece 15% */
+    transform: scale(1.02); 
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);    
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    filter: brightness(0.85); 
+    cursor: pointer;
 }
+
 
 
 .sobre_container {
@@ -233,4 +232,66 @@
     .sobre_texto p {
         text-align: center;
     }
+}
+
+
+.portas_carousel {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: -4rem;
+    background: transparent; /* fundo transparente */
+}
+
+.portas_carousel img {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 4px;
+    object-fit: contain;
+    transform: scale(0.95);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+.portas_carousel img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    filter: brightness(0.7);
+}
+
+.modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+}
+
+.modal_content {
+    position: relative;
+    max-width: 80%;   
+    max-height: 80%; 
+}
+
+.modal_content img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: contain; 
+}
+
+.modal_close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: white;
+    border: none;
+    font-size: 24px;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
 }
