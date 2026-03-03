@@ -10,8 +10,6 @@ export default function Header() {
                 <a href="/">Home</a>
                 <a href="">Sobre nós</a>
                 <a href="">Nossos Trabalhos</a>
-                <a href="">Portfólio</a>
-                <a href="">Fale conosco</a>
             </div>
         </div>  
     );

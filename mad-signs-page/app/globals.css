@@ -11,3 +11,10 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
+
+
+
+.swiper {
+  padding: 5rem;
+  margin: 5rem;
+}
