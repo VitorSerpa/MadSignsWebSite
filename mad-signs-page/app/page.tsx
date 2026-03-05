@@ -2,9 +2,14 @@
 import Header from "./components/sections/Header";
 import Footer from "./components/sections/Footer";
 import style from "./Page.module.css";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, EffectCoverflow } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+  EffectCoverflow,
+} from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,19 +17,6 @@ import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 
 export default function Home() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalImage, setModalImage] = useState("");
-
-  const openModal = (imgSrc: string) => {
-    setModalImage(imgSrc);
-    setModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-    setModalImage("");
-  };
-
   const images = [
     "/images/portaACM1.jpeg",
     "/images/portaACM2.jpeg",
@@ -40,9 +32,77 @@ export default function Home() {
     "/images/portaACM6.jpeg",
   ];
 
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [zoom, setZoom] = useState(1);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [dragging, setDragging] = useState(false);
+
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  const openModal = (img: string) => {
+    setSelectedImage(img);
+    setIsModalOpen(true);
+    setZoom(1);
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
+  };
+
+  // fechar com ESC
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeModal();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
+
+  // zoom com scroll
+  const handleWheel = (e: React.WheelEvent) => {
+    e.preventDefault();
+    const newZoom = zoom - e.deltaY * 0.001;
+    setZoom(Math.min(Math.max(1, newZoom), 4));
+  };
+
+  const [zoomed, setZoomed] = useState(false);
+const [transformOrigin, setTransformOrigin] = useState("center center");
+
+const handleImageClick = (
+  e: React.MouseEvent<HTMLImageElement, MouseEvent>
+) => {
+  if (!zoomed) {
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
+
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+
+    setTransformOrigin(`${x}% ${y}%`);
+  }
+
+  setZoomed(!zoomed);
+};
+
+  // drag imagem
+  const handleMouseDown = () => setDragging(true);
+  const handleMouseUp = () => setDragging(false);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!dragging) return;
+    setPosition((prev) => ({
+      x: prev.x + e.movementX,
+      y: prev.y + e.movementY,
+    }));
+  };
+
   return (
     <div>
       <Header />
+
       <div className={style.radial_div}>
         <div className={style.title_div}>
           <h1>MadSigns</h1>
@@ -60,18 +120,16 @@ export default function Home() {
 
       <div className={style.about}>
         <h1>Nossos Produtos:</h1>
+
         <div className={style.portas_carousel}>
           <Swiper
             modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
             effect="coverflow"
-            grabCursor={true}
+            grabCursor
             slidesPerView={3}
             spaceBetween={30}
-            loop={true}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
+            loop
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
             speed={1000}
             coverflowEffect={{
               rotate: 8,
@@ -88,19 +146,43 @@ export default function Home() {
                   src={img}
                   alt={`Porta ACM ${idx + 1}`}
                   onClick={() => openModal(img)}
+                  style={{ cursor: "pointer" }}
                 />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
 
-        {modalOpen && (
+        {isModalOpen && selectedImage && (
           <div className={style.modal_overlay} onClick={closeModal}>
-            <div className={style.modal_content} onClick={(e) => e.stopPropagation()}>
-              <img src={modalImage} alt="Imagem ampliada" />
-              <button className={style.modal_close} onClick={closeModal}>
-                ×
-              </button>
+            <div
+              className={style.modal_content}
+              onClick={(e) => e.stopPropagation()}
+            >
+         
+
+              <div className={style.zoom_controls}>
+                <button onClick={() => setZoom((z) => Math.min(z + 0.2, 4))}>
+                  +
+                </button>
+                <button onClick={() => setZoom((z) => Math.max(z - 0.2, 1))}>
+                  −
+                </button>
+              </div>
+
+              <img
+  src={selectedImage}
+  alt="Imagem ampliada"
+  onClick={handleImageClick}
+  style={{
+    maxWidth: "100%",
+    maxHeight: "80vh",
+    transition: "transform 0.4s ease",
+    transform: zoomed ? "scale(2.5)" : "scale(1)",
+    transformOrigin: transformOrigin,
+    cursor: zoomed ? "zoom-out" : "zoom-in",
+  }}
+/>
             </div>
           </div>
         )}
@@ -128,10 +210,7 @@ export default function Home() {
           </div>
 
           <div className={style.sobre_imagem}>
-            <img
-              src="/images/empresa.jpg"
-              alt="Estrutura da empresa MadSigns"
-            />
+            <img src="/images/empresa.jpg" alt="Estrutura da empresa" />
           </div>
         </div>
       </div>
