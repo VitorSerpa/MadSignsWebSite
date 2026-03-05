@@ -56,17 +56,20 @@
 }
 
 .button_veja {
-    font-size: 16px;
+    font-size: 1.2rem;
     margin-top: 1rem;
     padding: 0.4rem 2.8rem;
     background-color: transparent;
     color: white;
     border: 1px solid white;
     border-radius: 4px;
+        transition: 0.3s ease-out;
 }
 
 .button_veja:hover {
     cursor: pointer;
+    background-color: rgb(108, 108, 108);
+    color: white;
 }
 
 .options_div {
@@ -293,5 +296,21 @@
     border-radius: 50%;
     width: 32px;
     height: 32px;
+    cursor: pointer;
+}
+
+.orcamentoButton{
+    font-size: 1.2rem;
+    padding: 0.4rem 2.8rem;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+    transition: 0.3s ease-out;
+}
+
+.orcamentoButton:hover{
+    background-color: white;
+    color: black;
     cursor: pointer;
 }

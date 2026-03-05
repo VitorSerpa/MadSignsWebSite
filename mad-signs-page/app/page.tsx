@@ -92,6 +92,7 @@ export default function Home() {
               </SwiperSlide>
             ))}
           </Swiper>
+          <button className={style.orcamentoButton}>Solicite um orçamento</button>
         </div>
 
         {modalOpen && (
