@@ -52,7 +52,6 @@ export default function Home() {
     setSelectedImage(null);
   };
 
-  // fechar com ESC
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeModal();
@@ -61,7 +60,6 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleKey);
   }, []);
 
-  // zoom com scroll
   const handleWheel = (e: React.WheelEvent) => {
     e.preventDefault();
     const newZoom = zoom - e.deltaY * 0.001;
@@ -211,7 +209,7 @@ const handleImageClick = (
           </div>
 
           <div className={style.sobre_imagem}>
-            <img src="/images/empresa.jpg" alt="Estrutura da empresa" />
+            <img src="/images/fachada1.jpeg" alt="Estrutura da empresa" />
           </div>
         </div>
       </div>
