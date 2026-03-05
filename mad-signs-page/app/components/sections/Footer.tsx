@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className={style.footer}>
       <div className={style.container}>
-        
+
         <div className={style.col}>
           <h3>MadSigns</h3>
           <p>
@@ -16,17 +16,24 @@ export default function Footer() {
         <div className={style.col}>
           <h4>Navegação</h4>
           <a href="/">Home</a>
-          <a href="/sobre">Sobre Nós</a>
           <a href="/trabalhos">Nossos Trabalhos</a>
-          <a href="/portfolio">Portfólio</a>
+          <a href="/sobre">Sobre Nós</a>
           <a href="/contato">Fale Conosco</a>
         </div>
 
         <div className={style.col}>
           <h4>Contato</h4>
           <p>São José dos Campos - SP</p>
-          <p>(12) 0000-0000</p>
+          <p>(12) 97410-3242</p>
+          <p>(12) 3916-6261</p>
           <p>contato@madsigns.com.br</p>
+        </div>
+
+        <div className={style.map}>
+          <iframe
+            loading="lazy"
+            src="https://maps.google.com/maps?q=Av.%20Ouro%20Fino%201241%20Bosque%20dos%20Eucaliptos%20Sao%20Jose%20dos%20Campos%20SP&output=embed">
+          </iframe>
         </div>
 
       </div>

@@ -151,6 +151,7 @@ const handleImageClick = (
               </SwiperSlide>
             ))}
           </Swiper>
+          <button className={style.orcamentoButton}>Solicite um orçamento</button>
         </div>
 
         {isModalOpen && selectedImage && (
