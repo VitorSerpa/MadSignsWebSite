@@ -31,6 +31,8 @@
   .main_div_header{
     justify-content: center;
     gap: 1rem;
+    padding: 0 0rem;
+
   }
 
   .logo_container{
