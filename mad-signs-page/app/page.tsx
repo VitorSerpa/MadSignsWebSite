@@ -120,35 +120,54 @@ const handleImageClick = (
         <h1>Nossos Produtos:</h1>
 
         <div className={style.portas_carousel}>
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
-            effect="coverflow"
-            grabCursor
-            slidesPerView={3}
-            spaceBetween={30}
-            loop
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            speed={1000}
-            coverflowEffect={{
-              rotate: 8,
-              stretch: 0,
-              depth: 200,
-              modifier: 1,
-              slideShadows: true,
-            }}
-            navigation
-          >
-            {images.map((img, idx) => (
-              <SwiperSlide key={idx}>
-                <img
-                  src={img}
-                  alt={`Porta ACM ${idx + 1}`}
-                  onClick={() => openModal(img)}
-                  style={{ cursor: "pointer" }}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+  <Swiper
+    modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
+    effect="coverflow"
+    grabCursor
+    loop
+    autoplay={{ delay: 3000, disableOnInteraction: false }}
+    speed={1000}
+    navigation
+    coverflowEffect={{
+      rotate: 8,
+      stretch: 0,
+      depth: 200,
+      modifier: 1,
+      slideShadows: true,
+    }}
+
+    breakpoints={{
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        coverflowEffect: {
+           rotate: 8,
+      stretch: 0,
+      depth: 200,
+      modifier: 1,
+        }
+      },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      }
+    }}
+  >
+    {images.map((img, idx) => (
+      <SwiperSlide key={idx}>
+        <img
+          src={img}
+          alt={`Porta ACM ${idx + 1}`}
+          onClick={() => openModal(img)}
+          style={{ cursor: "pointer" }}
+        />
+      </SwiperSlide>
+    ))}
+  </Swiper>
           <button className={style.orcamentoButton}>Solicite um orçamento</button>
         </div>
 

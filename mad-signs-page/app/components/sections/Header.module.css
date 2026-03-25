@@ -1,5 +1,7 @@
 .main_div_header{
-    margin: 1rem 14rem;
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -8,6 +10,10 @@
 
 .main_div_header img{
     max-width: 160px;
+}
+.logo_container{
+    display: flex;
+    align-items: center;
 }
 
 .header_links{
@@ -41,6 +47,7 @@
 
 @media (max-width: 768px){
 
+
     .main_div_header{
         margin: 1rem 2rem;
         flex-direction: column;
@@ -73,5 +80,21 @@
         margin: 0.4rem 0;
         font-size: 14px;
     }
+
+  .main_div_header{
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 0rem;
+  }
+
+  .logo_container{
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .header_links{
+    flex-basis: 100%;
+    justify-content: center;
+  }
 
 }
