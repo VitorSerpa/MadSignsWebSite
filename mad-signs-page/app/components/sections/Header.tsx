@@ -8,7 +8,7 @@ export default function Header() {
             </div>
             <div className={style.header_links}>
                 <a href="#home">Home</a>
-                <a href="#produtos">Nossos Trabalhos</a>
+                <a href="#produtos">Nossos Produtos</a>
                 <a href="#sobre">Sobre nós</a>
                 <a href="#contato">Contato</a>
             </div>

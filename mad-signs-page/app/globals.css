@@ -6,6 +6,10 @@
   font-family: "Inter", sans-serif;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 .page {
   min-height: 100vh;
   

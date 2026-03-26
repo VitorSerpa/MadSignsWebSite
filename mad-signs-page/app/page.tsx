@@ -30,6 +30,24 @@ export default function Home() {
     "/images/portaACM4.jpeg",
     "/images/portaACM5.jpeg",
     "/images/portaACM6.jpeg",
+    "/images/portaACM1.jpeg",
+    "/images/portaACM2.jpeg",
+    "/images/portaACM3.jpeg",
+    "/images/portaACM4.jpeg",
+    "/images/portaACM5.jpeg",
+    "/images/portaACM6.jpeg",
+    "/images/portaACM1.jpeg",
+    "/images/portaACM2.jpeg",
+    "/images/portaACM3.jpeg",
+    "/images/portaACM4.jpeg",
+    "/images/portaACM5.jpeg",
+    "/images/portaACM6.jpeg",
+    "/images/portaACM1.jpeg",
+    "/images/portaACM2.jpeg",
+    "/images/portaACM3.jpeg",
+    "/images/portaACM4.jpeg",
+    "/images/portaACM5.jpeg",
+    "/images/portaACM6.jpeg",
   ];
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -67,23 +85,23 @@ export default function Home() {
   };
 
   const [zoomed, setZoomed] = useState(false);
-const [transformOrigin, setTransformOrigin] = useState("center center");
+  const [transformOrigin, setTransformOrigin] = useState("center center");
 
-const handleImageClick = (
-  e: React.MouseEvent<HTMLImageElement, MouseEvent>
-) => {
-  if (!zoomed) {
-    const { left, top, width, height } =
-      e.currentTarget.getBoundingClientRect();
+  const handleImageClick = (
+    e: React.MouseEvent<HTMLImageElement, MouseEvent>
+  ) => {
+    if (!zoomed) {
+      const { left, top, width, height } =
+        e.currentTarget.getBoundingClientRect();
 
-    const x = ((e.clientX - left) / width) * 100;
-    const y = ((e.clientY - top) / height) * 100;
+      const x = ((e.clientX - left) / width) * 100;
+      const y = ((e.clientY - top) / height) * 100;
 
-    setTransformOrigin(`${x}% ${y}%`);
-  }
+      setTransformOrigin(`${x}% ${y}%`);
+    }
 
-  setZoomed(!zoomed);
-};
+    setZoomed(!zoomed);
+  };
 
   // drag imagem
   const handleMouseDown = () => setDragging(true);
@@ -117,57 +135,59 @@ const handleImageClick = (
       </div>
 
       <div className={style.about}>
-        <h1>Nossos Produtos:</h1>
+        <h1 id="produtos">Nossos Produtos:</h1>
 
         <div className={style.portas_carousel}>
-  <Swiper
-    modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
-    effect="coverflow"
-    grabCursor
-    loop
-    autoplay={{ delay: 3000, disableOnInteraction: false }}
-    speed={1000}
-    navigation
-    coverflowEffect={{
-      rotate: 8,
-      stretch: 0,
-      depth: 200,
-      modifier: 1,
-      slideShadows: true,
-    }}
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
+            effect="coverflow"
+            grabCursor
+            loop
+            initialSlide={4}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            speed={1000}
+            navigation
+            loopAdditionalSlides={images.length}
+            coverflowEffect={{
+              rotate: 8,
+              stretch: 0,
+              depth: 200,
+              modifier: 1,
+              slideShadows: true,
+            }}
 
-    breakpoints={{
-      0: {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        coverflowEffect: {
-           rotate: 8,
-      stretch: 0,
-      depth: 200,
-      modifier: 1,
-        }
-      },
-      640: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      }
-    }}
-  >
-    {images.map((img, idx) => (
-      <SwiperSlide key={idx}>
-        <img
-          src={img}
-          alt={`Porta ACM ${idx + 1}`}
-          onClick={() => openModal(img)}
-          style={{ cursor: "pointer" }}
-        />
-      </SwiperSlide>
-    ))}
-  </Swiper>
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                coverflowEffect: {
+                  rotate: 8,
+                  stretch: 0,
+                  depth: 200,
+                  modifier: 1,
+                }
+              },
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              }
+            }}
+          >
+            {images.map((img, idx) => (
+              <SwiperSlide key={idx}>
+                <img
+                  src={img}
+                  alt={`Porta ACM ${idx + 1}`}
+                  onClick={() => openModal(img)}
+                  style={{ cursor: "pointer" }}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
           <button className={style.orcamentoButton}>Solicite um orçamento</button>
         </div>
 
@@ -177,7 +197,7 @@ const handleImageClick = (
               className={style.modal_content}
               onClick={(e) => e.stopPropagation()}
             >
-         
+
 
               <div className={style.zoom_controls}>
                 <button onClick={() => setZoom((z) => Math.min(z + 0.2, 4))}>
@@ -189,18 +209,18 @@ const handleImageClick = (
               </div>
 
               <img
-  src={selectedImage}
-  alt="Imagem ampliada"
-  onClick={handleImageClick}
-  style={{
-    maxWidth: "100%",
-    maxHeight: "80vh",
-    transition: "transform 0.4s ease",
-    transform: zoomed ? "scale(2.5)" : "scale(1)",
-    transformOrigin: transformOrigin,
-    cursor: zoomed ? "zoom-out" : "zoom-in",
-  }}
-/>
+                src={selectedImage}
+                alt="Imagem ampliada"
+                onClick={handleImageClick}
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "80vh",
+                  transition: "transform 0.4s ease",
+                  transform: zoomed ? "scale(2.5)" : "scale(1)",
+                  transformOrigin: transformOrigin,
+                  cursor: zoomed ? "zoom-out" : "zoom-in",
+                }}
+              />
             </div>
           </div>
         )}
