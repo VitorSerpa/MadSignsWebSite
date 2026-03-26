@@ -101,7 +101,7 @@ const handleImageClick = (
     <div>
       <Header />
 
-      <div className={style.radial_div}>
+      <div id="home" className={style.radial_div}>
         <div className={style.title_div}>
           <h1>MadSigns</h1>
           <h2>
