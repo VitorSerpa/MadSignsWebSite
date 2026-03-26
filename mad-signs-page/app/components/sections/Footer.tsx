@@ -2,7 +2,7 @@ import style from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className={style.footer}>
+    <footer id="contato" className={style.footer}>
       <div className={style.container}>
 
         <div className={style.col}>
@@ -24,11 +24,30 @@ export default function Footer() {
         <div className={style.col}>
           <h4>Contato</h4>
           <p>São José dos Campos - SP</p>
-          <p>(12) 97410-3242</p>
-          <p>(12) 3916-6261</p>
-          <p>contato@madsigns.com.br</p>
-        </div>
 
+          <p>
+            <a href="https://wa.me/5512974103242"
+              target="_blank"
+              rel="noopener noreferrer">(12) 97410-3242</a>
+          </p>
+
+          <p>
+            (12) 3916-6261
+          </p>
+
+          <p>
+            <a href="mailto:contato@madsigns.com.br">
+              contato@madsigns.com.br
+            </a>
+          </p>
+
+          <p>
+            <a
+              
+            >
+            </a>
+          </p>
+        </div>
         <div className={style.map}>
           <iframe
             loading="lazy"

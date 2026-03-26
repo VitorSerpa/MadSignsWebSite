@@ -48,6 +48,18 @@ export default function Home() {
     "/images/portaACM4.jpeg",
     "/images/portaACM5.jpeg",
     "/images/portaACM6.jpeg",
+    "/images/portaACM1.jpeg",
+    "/images/portaACM2.jpeg",
+    "/images/portaACM3.jpeg",
+    "/images/portaACM4.jpeg",
+    "/images/portaACM5.jpeg",
+    "/images/portaACM6.jpeg",
+    "/images/portaACM1.jpeg",
+    "/images/portaACM2.jpeg",
+    "/images/portaACM3.jpeg",
+    "/images/portaACM4.jpeg",
+    "/images/portaACM5.jpeg",
+    "/images/portaACM6.jpeg",
   ];
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -134,16 +146,15 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={style.about}>
-        <h1 id="produtos">Nossos Produtos:</h1>
+      <div id="produtos" className={style.about}>
+        <h1 >Nossos Produtos:</h1>
 
         <div className={style.portas_carousel}>
           <Swiper
             modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
             effect="coverflow"
             grabCursor
-            loop
-            initialSlide={4}
+            initialSlide={2}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             speed={1000}
             navigation
@@ -225,7 +236,7 @@ export default function Home() {
           </div>
         )}
 
-        <div className={style.sobre_container}>
+        <div id="sobre" className={style.sobre_container}>
           <div className={style.sobre_texto}>
             <h2>Sobre a MadSigns</h2>
             <p>
@@ -253,7 +264,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Footer />
+      <Footer ></Footer>
     </div>
   );
 }
