@@ -15,10 +15,10 @@ export default function Footer() {
 
         <div className={style.col}>
           <h4>Navegação</h4>
-          <a href="/">Home</a>
-          <a href="/trabalhos">Nossos Trabalhos</a>
-          <a href="/sobre">Sobre Nós</a>
-          <a href="/contato">Fale Conosco</a>
+          <a href="#home">Home</a>
+                <a href="#produtos">Nossos Produtos</a>
+                <a href="#sobre">Sobre nós</a>
+                <a href="#contato">Contato</a>
         </div>
 
         <div className={style.col}>
