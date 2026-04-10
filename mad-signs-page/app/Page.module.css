@@ -492,3 +492,105 @@
     }
 
 }
+
+.vantagens_section {
+    background-color: #111;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.vantagens_section h2 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 2rem;
+}
+
+.vantagens_grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vantagem_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #b3b3b3;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.vantagem_item span {
+    font-size: 28px;
+}
+
+.vantagem_item p {
+    font-size: 14px;
+}
+
+.vantagem_item:hover {
+    transform: translateY(-5px);
+    color: white;
+    cursor: default;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .vantagens_grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .vantagens_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.vantagens_section {
+    background-color: #111;
+    padding: 5rem 2rem; /* aumentei o respiro */
+    text-align: center;
+}
+
+.vantagens_section h2 {
+    color: white;
+    font-size: 36px; /* maior destaque */
+    margin-bottom: 3rem;
+}
+
+.vantagens_grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2.5rem; /* mais espaço entre itens */
+    max-width: 1300px; /* um pouco mais largo */
+    margin: 0 auto;
+}
+
+.vantagem_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    color: #b3b3b3;
+    padding: 1.5rem; /* adiciona “peso” visual */
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.vantagem_item svg {
+    width: 40px;  /* ícones maiores */
+    height: 40px;
+}
+
+.vantagem_item p {
+    font-size: 16px; /* texto maior */
+}
+
+.vantagem_item:hover {
+    transform: translateY(-8px); /* mais efeito */
+    color: white;
+}

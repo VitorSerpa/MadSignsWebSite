@@ -5,6 +5,15 @@ import style from "./Page.module.css";
 import { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
+  Settings,
+  Truck,
+  Target,
+  Sparkles,
+  Building2,
+  Star
+} from "lucide-react";
+
+import {
   Navigation,
   Pagination,
   Autoplay,
@@ -138,11 +147,55 @@ export default function Home() {
             Manufatura de Portas <br />
             ACM
           </h2>
-          <button className={style.button_veja}>Veja mais</button>
+          <button
+            className={style.button_veja}
+            onClick={() => {
+              const section = document.getElementById("vantagens");
+              section?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Veja mais
+          </button>
         </div>
         <div className={style.img_div}>
           <img src="/images/portaACM5.jpeg" className={style.img1} alt="" />
           <img src="/images/portaACM4.jpeg" className={style.img2} alt="" />
+        </div>
+      </div>
+
+      <div id="vantagens" className={style.vantagens_section}>
+        <h2>Por que escolher as Portas ACM MadSigns?</h2>
+
+        <div className={style.vantagens_grid}>
+          <div className={style.vantagem_item}>
+            <Settings size={32} />
+            <p>Portas Sob Medida</p>
+          </div>
+
+          <div className={style.vantagem_item}>
+            <Truck size={32} />
+            <p>Opções de cores</p>
+          </div>
+
+          <div className={style.vantagem_item}>
+            <Target size={32} />
+            <p>Altíssima Qualidade</p>
+          </div>
+
+          <div className={style.vantagem_item}>
+            <Sparkles size={32} />
+            <p>Fácil Limpeza</p>
+          </div>
+
+          <div className={style.vantagem_item}>
+            <Building2 size={32} />
+            <p>Até 30% mais Leve</p>
+          </div>
+
+          <div className={style.vantagem_item}>
+            <Star size={32} />
+            <p>Entrega rápida</p>
+          </div>
         </div>
       </div>
 
@@ -199,7 +252,15 @@ export default function Home() {
               </SwiperSlide>
             ))}
           </Swiper>
-          <button className={style.orcamentoButton}>Solicite um orçamento</button>
+          <button
+            className={style.orcamentoButton}
+            onClick={() => {
+              const section = document.getElementById("contato");
+              section?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Solicite um orçamento
+          </button>
         </div>
 
         {isModalOpen && selectedImage && (
