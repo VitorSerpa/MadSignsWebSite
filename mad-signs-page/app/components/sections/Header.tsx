@@ -9,9 +9,10 @@ export default function Header() {
             <div className={style.header_links}>
                 <a href="#home">Home</a>
                 <a href="#produtos">Nossos Produtos</a>
+                <a href="/portfolio">Portfólio</a>
                 <a href="#sobre">Sobre nós</a>
                 <a href="#contato">Contato</a>
             </div>
-        </div>  
+        </div>
     );
 }

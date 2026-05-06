@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    background-color: white;
 }
 
 .main_div_header img {
@@ -47,7 +48,6 @@
 
 
 @media (max-width: 768px) {
-
 
     .main_div_header {
         margin: 1rem 2rem;

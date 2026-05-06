@@ -200,7 +200,7 @@ export default function Home() {
       </div>
 
       <div id="produtos" className={style.about}>
-        <h1 >Nossos Produtos:</h1>
+        <h1>Nossos Produtos:</h1>
 
         <div className={style.portas_carousel}>
           <Swiper
@@ -219,7 +219,6 @@ export default function Home() {
               modifier: 1,
               slideShadows: true,
             }}
-
             breakpoints={{
               0: {
                 slidesPerView: 1,
@@ -243,12 +242,17 @@ export default function Home() {
           >
             {images.map((img, idx) => (
               <SwiperSlide key={idx}>
-                <img
-                  src={img}
-                  alt={`Porta ACM ${idx + 1}`}
-                  onClick={() => openModal(img)}
-                  style={{ cursor: "pointer" }}
-                />
+                <div className={style.slide_item} onClick={() => openModal(img)}>
+                  <img
+                    src={img}
+                    alt={`Porta ACM ${idx + 1}`}
+                    style={{ cursor: "pointer" }}
+                  />
+                  <div className={style.slide_overlay}>
+                    <span className={style.slide_label}>Porta ACM</span>
+                    <p className={style.slide_title}>Ver imagem</p>
+                  </div>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -269,8 +273,6 @@ export default function Home() {
               className={style.modal_content}
               onClick={(e) => e.stopPropagation()}
             >
-
-
               <div className={style.zoom_controls}>
                 <button onClick={() => setZoom((z) => Math.min(z + 0.2, 4))}>
                   +
