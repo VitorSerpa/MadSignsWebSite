@@ -5,7 +5,6 @@ import style from "./Portfolio.module.css";
 import { useState, useEffect, useRef } from "react";
 import { X, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Play } from "lucide-react";
 
-const CATEGORIES = ["Todos", "Comercial", "Residencial", "Industrial", "Fachadas"];
 
 const portfolioItems = [
     { id: 1, type: "image", src: "/images/portaACM1.jpeg", category: "Comercial", title: "Porta ACM Comercial", description: "Acabamento premium em ACM" },
@@ -16,7 +15,7 @@ const portfolioItems = [
     { id: 6, type: "image", src: "/images/portaACM6.jpeg", category: "Residencial", title: "Porta ACM Casa", description: "Leveza e modernidade" },
     { id: 7, type: "image", src: "/images/portaACM1.jpeg", category: "Industrial", title: "Porta ACM Galpão", description: "Estrutura robusta em ACM" },
     { id: 8, type: "image", src: "/images/portaACM2.jpeg", category: "Fachadas", title: "Fachada Comercial", description: "Identidade visual marcante" },
-    { id: 9, type: "video", src: "/videos/portaACM1.mp4", poster: "/images/portaACM3.jpeg", category: "Comercial", title: "Instalação ACM", description: "Processo de instalação" },
+    { id: 9, type: "video", src: "/images/portaACMVideo.mp4", poster: "/images/portaACM3.jpeg", category: "Comercial", title: "Instalação ACM", description: "Processo de instalação" },
     { id: 10, type: "image", src: "/images/portaACM4.jpeg", category: "Residencial", title: "Porta Residencial Premium", description: "Acabamento impecável" },
     { id: 11, type: "image", src: "/images/portaACM5.jpeg", category: "Industrial", title: "Porta Industrial Larga", description: "Acesso facilitado" },
     { id: 12, type: "video", src: "/videos/portaACM2.mp4", poster: "/images/portaACM6.jpeg", category: "Fachadas", title: "Fachada em Obra", description: "Montagem profissional" },
@@ -108,17 +107,7 @@ export default function Portfolio() {
 
             {/* Filter bar */}
             <section className={style.filter_section}>
-                <div className={style.filter_bar}>
-                    {CATEGORIES.map((cat) => (
-                        <button
-                            key={cat}
-                            className={`${style.filter_btn} ${activeCategory === cat ? style.filter_active : ""}`}
-                            onClick={() => setActiveCategory(cat)}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
+                
                 <span className={style.count}>{filtered.length} projetos</span>
             </section>
 

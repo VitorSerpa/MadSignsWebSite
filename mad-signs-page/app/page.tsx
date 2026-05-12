@@ -154,7 +154,7 @@ export default function Home() {
               section?.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            Veja mais
+            Nossos Produtos
           </button>
         </div>
         <div className={style.img_div}>
@@ -259,11 +259,10 @@ export default function Home() {
           <button
             className={style.orcamentoButton}
             onClick={() => {
-              const section = document.getElementById("contato");
-              section?.scrollIntoView({ behavior: "smooth" });
+              window.location.href = "/portfolio";
             }}
           >
-            Solicite um orçamento
+            Veja nosso portfólio
           </button>
         </div>
 

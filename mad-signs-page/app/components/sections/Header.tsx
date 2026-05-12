@@ -7,11 +7,11 @@ export default function Header() {
                 <img src="/images/logo.png" alt="MadSignsLogo" />
             </div>
             <div className={style.header_links}>
-                <a href="#home">Home</a>
-                <a href="#produtos">Nossos Produtos</a>
+                <a href="/#home">Home</a>
+                <a href="/#produtos">Nossos Produtos</a>
                 <a href="/portfolio">Portfólio</a>
-                <a href="#sobre">Sobre nós</a>
-                <a href="#contato">Contato</a>
+                <a href="/#sobre">Sobre nós</a>
+                <a href="/#contato">Contato</a>
             </div>
         </div>
     );
