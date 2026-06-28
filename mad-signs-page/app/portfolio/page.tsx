@@ -7,18 +7,23 @@ import { X, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, Play } from "lucide-reac
 
 
 const portfolioItems = [
-    { id: 1, type: "image", src: "/images/portaACM1.jpeg", category: "Comercial", title: "Porta ACM Comercial", description: "Acabamento premium em ACM" },
-    { id: 2, type: "image", src: "/images/portaACM2.jpeg", category: "Residencial", title: "Porta ACM Residencial", description: "Design moderno e funcional" },
-    { id: 3, type: "image", src: "/images/portaACM3.jpeg", category: "Industrial", title: "Porta ACM Industrial", description: "Alta resistência e durabilidade" },
-    { id: 4, type: "image", src: "/images/portaACM4.jpeg", category: "Fachadas", title: "Fachada ACM", description: "Projeto sob medida" },
-    { id: 5, type: "image", src: "/images/portaACM5.jpeg", category: "Comercial", title: "Porta ACM Escritório", description: "Elegância corporativa" },
-    { id: 6, type: "image", src: "/images/portaACM6.jpeg", category: "Residencial", title: "Porta ACM Casa", description: "Leveza e modernidade" },
-    { id: 7, type: "image", src: "/images/portaACM1.jpeg", category: "Industrial", title: "Porta ACM Galpão", description: "Estrutura robusta em ACM" },
-    { id: 8, type: "image", src: "/images/portaACM2.jpeg", category: "Fachadas", title: "Fachada Comercial", description: "Identidade visual marcante" },
-    { id: 9, type: "video", src: "/images/portaACMVideo.mp4", poster: "/images/portaACM3.jpeg", category: "Comercial", title: "Instalação ACM", description: "Processo de instalação" },
-    { id: 10, type: "image", src: "/images/portaACM4.jpeg", category: "Residencial", title: "Porta Residencial Premium", description: "Acabamento impecável" },
-    { id: 11, type: "image", src: "/images/portaACM5.jpeg", category: "Industrial", title: "Porta Industrial Larga", description: "Acesso facilitado" },
-    { id: 12, type: "video", src: "/videos/portaACM2.mp4", poster: "/images/portaACM6.jpeg", category: "Fachadas", title: "Fachada em Obra", description: "Montagem profissional" },
+    { id: 15, type: "image", src: "/images/portaACM4.jpeg", category: "Residencial", title: "Porta Residencial Premium", description: "Acabamento impecável" },
+    { id: 16, type: "image", src: "/images/portaACM5.jpeg", category: "Comercial", title: "Porta ACM Escritório", description: "Elegância corporativa" },
+    { id: 7, type: "image", src: "/images/projeto-porta-cobre.jpeg", category: "Residencial", title: "Porta Cobre Moderna", description: "Acabamento cobre acetinado" },
+    { id: 1, type: "image", src: "/images/projeto-porta-pivotante.jpeg", category: "Residencial", title: "Porta Pivotante Premium", description: "Porta pivotante preta com fechadura digital e laterais de vidro" },
+    { id: 19, type: "image", src: "/images/portaACM.jpeg", category: "Residencial", title: "Porta Preta com Vidros", description: "Entrada em ACM preto com laterais de vidro e fechadura digital" },
+    { id: 2, type: "video", src: "/images/video-porta-ripada-preta.mp4", poster: "/images/video-porta-ripada-preta-poster.jpg", category: "Fachadas", title: "Fachada Ripada Preta", description: "Painel ripado em ACM preto" },
+    { id: 14, type: "image", src: "/images/portaACM1.jpeg", category: "Comercial", title: "Porta ACM Comercial", description: "Acabamento premium em ACM" },
+    { id: 4, type: "video", src: "/images/video-porta-branca.mp4", poster: "/images/video-porta-branca-poster.jpg", category: "Residencial", title: "Porta Branca Moderna", description: "Linhas limpas com puxador vertical" },
+    { id    : 6, type: "video", src: "/images/video-porta-madeira-fechadura.mp4", poster: "/images/video-porta-madeira-fechadura-poster.jpg", category: "Residencial", title: "Porta Ripada Amadeirada", description: "Ripado madeira com fechadura digital" },
+    { id: 8, type: "video", src: "/images/video-fechadura-digital.mp4", poster: "/images/video-fechadura-digital-poster.jpg", category: "Comercial", title: "Fechadura Digital", description: "Tecnologia e segurança integradas" },
+    {    id: 5, type: "image", src: "/images/projeto-porta-preta-dourada.jpeg", category: "Residencial", title: "Porta Preta Clássica", description: "Acabamento preto com puxador dourado" },
+    { id: 9, type: "image", src: "/images/projeto-porta-marrom-vidro.jpeg", category: "Residencial", title: "Porta com Detalhe em Vidro", description: "Design moderno com vidro lateral" },
+    { id: 10, type: "video", src: "/images/video-porta-ripada-madeira.mp4", poster: "/images/video-porta-ripada-madeira-poster.jpg", category: "Residencial", title: "Porta Ripada Madeira", description: "Acabamento amadeirado de alto padrão" },
+    {id: 3, type: "image", src: "/images/projeto-porta-madeira.jpeg", category: "Residencial", title: "Porta Amadeirada", description: "Padrão madeira com fechadura digital" },
+    { id: 11, type: "video", src: "/images/video-detalhe-madeira.mp4", poster: "/images/video-detalhe-madeira-poster.jpg", category: "Residencial", title: "Detalhe do Acabamento", description: "Puxador embutido e textura madeira" },
+    { id: 17, type: "image", src: "/images/portaACM6.jpeg", category: "Residencial", title: "Porta ACM Casa", description: "Leveza e modernidade" },
+    { id: 18, type: "video", src: "/images/portaACMVideo.mp4", poster: "/images/portaACM3.jpeg", category: "Comercial", title: "Instalação ACM", description: "Processo de instalação" },
 ];
 
 export default function Portfolio() {
@@ -132,8 +137,6 @@ export default function Portfolio() {
                             )}
                             <div className={style.item_overlay}>
                                 <span className={style.item_category}>{item.category}</span>
-                                <h3>{item.title}</h3>
-                                <p>{item.description}</p>
                             </div>
                         </div>
                     ))}
@@ -190,8 +193,6 @@ export default function Portfolio() {
                         )}
                         <div className={style.lb_info}>
                             <span className={style.lb_category}>{currentItem.category}</span>
-                            <h3>{currentItem.title}</h3>
-                            <p>{currentItem.description}</p>
                             <span className={style.lb_counter}>
                                 {lightboxIndex + 1} / {filtered.length}
                             </span>

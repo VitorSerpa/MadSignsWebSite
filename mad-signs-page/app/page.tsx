@@ -10,7 +10,8 @@ import {
   Target,
   Sparkles,
   Building2,
-  Star
+  Star,
+  ArrowRight
 } from "lucide-react";
 
 import {
@@ -262,7 +263,7 @@ export default function Home() {
               window.location.href = "/portfolio";
             }}
           >
-            Veja nosso portfólio
+            Ver portfólio completo <ArrowRight size={20} />
           </button>
         </div>
 
